@@ -24,8 +24,14 @@ export default function Profile() {
     };
 
     useEffect(() => {
-        fetchProfile();
-    }, []);
+        const fetchData = async () => {
+            await fetchProfile();
+        };
+
+        fetchData(); // @ts-ignore: Promise returned from fetchData is ignored
+    }, [fetchProfile]);
+
+
     return (
         <div className="wd-profile-screen">
             <h1>Profile</h1>
